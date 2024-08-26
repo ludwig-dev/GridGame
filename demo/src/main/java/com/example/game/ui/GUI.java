@@ -27,13 +27,20 @@ public class GUI extends JFrame {
         setSize(600, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        getContentPane().setBackground(Color.DARK_GRAY);
+
         scoreLabel = new JLabel("Score: 0");
-        scoreLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        scoreLabel.setFont(new Font("Arial", Font.BOLD, 23));
         scoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        scoreLabel.setForeground(Color.WHITE); 
+        //scoreLabel.setOpaque(true);
+       // scoreLabel.setBackground(Color.DARK_GRAY);
+
 
         gridPanel = new JPanel();
         gridPanel.setLayout(new GridLayout(gameGrid.getGrid().length, gameGrid.getGrid()[0].length));
         add(gridPanel);
+        //gridPanel.setBackground(Color.DARK_GRAY);
 
         getContentPane().add(scoreLabel, BorderLayout.NORTH);
         getContentPane().add(gridPanel, BorderLayout.CENTER);
@@ -45,7 +52,7 @@ public class GUI extends JFrame {
         gridPanel.removeAll(); // Clear previous components
         System.err.println();
         Cell[][] grid = gameGrid.getGrid();
-        Font labelFont = new Font("Arial", Font.BOLD, 24);
+        Font labelFont = new Font("Arial", Font.BOLD, 45);
 
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
@@ -56,6 +63,7 @@ public class GUI extends JFrame {
                     cellLabel.setOpaque(true);
                     cellLabel.setForeground(grid[i][j].getAwtColor());
                     cellLabel.setFont(labelFont); // Set the larger font
+                    cellLabel.setBackground(Color.GRAY); 
                 } else {
                     cellLabel.setText("null"); // Empty cell
                 }

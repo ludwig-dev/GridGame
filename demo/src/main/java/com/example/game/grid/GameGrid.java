@@ -30,12 +30,12 @@ public class GameGrid {
     }
 
     private void createGridArray() {
-        //Random random = new Random();
-        System.out.print("\nCreating 2d array...");
+        Random random = new Random();
+       // System.out.print("\nCreating 2d array...");
         for (int i = 0; i < this.grid.length; i++) {
             for (int j = 0; j < this.grid[i].length; j++) {
-                // int randomNumber = random.nextInt(5) + 1;
-                int randomNumber = 1;
+                 int randomNumber = random.nextInt(5) + 1;
+                //int randomNumber = 1;
                 Color associatedColor = numberToColorMap.get(randomNumber);
                 this.grid[i][j] = new Cell(randomNumber, associatedColor);
             }
