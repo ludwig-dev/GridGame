@@ -5,14 +5,17 @@ import java.util.Random;
 
 import com.example.game.model.Cell;
 import com.example.game.model.Color;
+import com.example.game.model.Score;
 
 
 public class GameGrid {
     private Cell[][] grid;
     private Map<Integer, Color> numberToColorMap;
+    private Score score;
 
     public GameGrid(int row, int col) {
         grid = new Cell[row][col];
+        score = new Score();
         initializeNumberToColorMap();
         createGridArray();
     }
@@ -95,6 +98,7 @@ public class GameGrid {
                 cell2.setColor(numberToColorMap.get(cell2.getNumber()));
                 System.out.println("Upgraded Cell: (" + row2 + ", " + col2 + ") from: " + (cell2.getNumber()-1) + " to: " + cell2.getNumber());
                 removeCell(row1, col1);
+                score.incrementScore(cell2.getNumber()-1);
 
                 return true;
             }
@@ -104,5 +108,9 @@ public class GameGrid {
 
     public Cell[][] getGrid() {
         return this.grid;
+    }
+
+    public int getScore() {
+        return score.getScore();
     }
 }

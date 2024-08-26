@@ -10,6 +10,7 @@ import com.example.game.model.Cell;
 public class GUI extends JFrame {
     private GameGrid gameGrid;
     private JPanel gridPanel;
+    private JLabel scoreLabel;
     private int[] firstSelectedCell = null;
 
     public GUI(GameGrid gameGrid) {
@@ -23,12 +24,19 @@ public class GUI extends JFrame {
 
     private void initializeUI() {
         setTitle("Grid Game");
-        setSize(600, 600);
+        setSize(600, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        scoreLabel = new JLabel("Score: 0");
+        scoreLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        scoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
         gridPanel = new JPanel();
         gridPanel.setLayout(new GridLayout(gameGrid.getGrid().length, gameGrid.getGrid()[0].length));
         add(gridPanel);
+
+        getContentPane().add(scoreLabel, BorderLayout.NORTH);
+        getContentPane().add(gridPanel, BorderLayout.CENTER);
 
         printGrid(); // Display the grid
     }
@@ -68,6 +76,7 @@ public class GUI extends JFrame {
 
         gridPanel.revalidate(); // Refresh the panel
         gridPanel.repaint(); // Repaint to reflect changes
+        scoreLabel.setText("Score: " + gameGrid.getScore());
     }
 
     private void handleCellClick(int row, int col) {
