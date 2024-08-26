@@ -61,12 +61,16 @@ public class GameGrid {
 
     private boolean isValidSelection(int row1, int col1, int row2, int col2) {
         // Ensure the selections are not null
-        if (this.grid[row1][col1] == null || this.grid[row2][col2] == null)
+        if (this.grid[row1][col1] == null || this.grid[row2][col2] == null){
+            System.out.println("Selected a empty sqaure!");
             return false;
-        
+        }
+
         //Ensure the selections is not the same
-        if(row1 == row2 && col1 == col2)
+        if(row1 == row2 && col1 == col2){
+            System.out.println("Selected the same square!");
             return false;
+        }
 
         // Ensure the selections are within bounds
         if (row1 >= 0 && row1 < grid.length && col1 >= 0 && col1 < grid[0].length &&
@@ -89,8 +93,8 @@ public class GameGrid {
             if (cell1.getNumber() == cell2.getNumber()) {
                 cell2.setNumber(cell2.getNumber() + 1);
                 cell2.setColor(numberToColorMap.get(cell2.getNumber()));
+                System.out.println("Upgraded Cell: (" + row2 + ", " + col2 + ") from: " + (cell2.getNumber()-1) + " to: " + cell2.getNumber());
                 removeCell(row1, col1);
-                // grid[row1][col1] = null; // Remove the first cell by setting it to null
 
                 return true;
             }
