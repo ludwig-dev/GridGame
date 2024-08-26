@@ -1,22 +1,19 @@
 package com.example.game.model;
 
 public enum Color {
-    BLUE("\u001B[34m"),
-    GREEN("\u001B[32m"),
-    RED("\u001B[31m"),
-    YELLOW("\u001B[33m"),
-    PURPLE("\u001B[35m");
+    BLUE(java.awt.Color.BLUE),
+    GREEN(java.awt.Color.GREEN),
+    RED(java.awt.Color.RED),
+    YELLOW(java.awt.Color.YELLOW),
+    PURPLE(java.awt.Color.MAGENTA); // Using MAGENTA for PURPLE
 
-    private final String ansiCode;
+    private final java.awt.Color awtColor;
 
-    Color(String ansiCode) {
-        this.ansiCode = ansiCode;
+    Color(java.awt.Color awtColor) {
+        this.awtColor = awtColor;
     }
 
-    public String getAnsiCode() {
-        return ansiCode;
+    public java.awt.Color getAwtColor() {
+        return awtColor;
     }
-
-    // Method to reset the color to default
-    public static final String RESET = "\u001B[0m";
 }

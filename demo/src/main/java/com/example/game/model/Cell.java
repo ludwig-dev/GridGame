@@ -25,12 +25,12 @@ public class Cell {
         this.color = color;
     }
 
-    public String getColoredNumber() {
-        return color.getAnsiCode() + number + Color.RESET;
+    public java.awt.Color getAwtColor() {
+        return color.getAwtColor();
     }
 
     @Override
     public String toString() {
-        return getColoredNumber();
+        return number + " (" + color.toString() + ")";
     }
 }
