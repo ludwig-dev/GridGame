@@ -49,7 +49,7 @@ public class GameGrid {
                 grid[i][col] = null;
                 return;
             }
-            grid[i][col] = grid[i - 1][row];
+            grid[i][col] = grid[i - 1][col];
             System.out.println("Swapped Cell: (" + i + ", " + col + ") with " + "(" + (i - 1) + ", " + col + ")");
             topCell--;
         }
