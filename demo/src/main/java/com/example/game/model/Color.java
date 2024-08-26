@@ -5,7 +5,7 @@ public enum Color {
     GREEN(java.awt.Color.GREEN),
     RED(java.awt.Color.RED),
     YELLOW(java.awt.Color.YELLOW),
-    PURPLE(java.awt.Color.MAGENTA); // Using MAGENTA for PURPLE
+    PURPLE(java.awt.Color.MAGENTA);
 
     private final java.awt.Color awtColor;
 
