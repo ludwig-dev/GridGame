@@ -32,25 +32,38 @@ public class GridGameGUI extends JFrame {
         scoreLabel = new JLabel("Score: 0");
         scoreLabel.setFont(new Font("Arial", Font.BOLD, 23));
         scoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        scoreLabel.setForeground(Color.WHITE); 
-        //scoreLabel.setOpaque(true);
-       // scoreLabel.setBackground(Color.DARK_GRAY);
+        scoreLabel.setForeground(Color.WHITE);
 
+        // Create a panel to hold the score label and the restart button
+        JPanel scorePanel = new JPanel(new BorderLayout());
+        scorePanel.setBackground(Color.DARK_GRAY);
+        scorePanel.add(scoreLabel, BorderLayout.CENTER);
+
+        // Add Restart Button
+        JButton restartButton = new JButton("Restart");
+        restartButton.setFont(new Font("Arial", Font.PLAIN, 12));
+        restartButton.addActionListener(e -> restartGame());
+        scorePanel.add(restartButton, BorderLayout.EAST);
 
         gridPanel = new JPanel();
         gridPanel.setLayout(new GridLayout(gameGrid.getGrid().length, gameGrid.getGrid()[0].length));
         add(gridPanel);
-        //gridPanel.setBackground(Color.DARK_GRAY);
 
-        getContentPane().add(scoreLabel, BorderLayout.NORTH);
+        getContentPane().add(scorePanel, BorderLayout.NORTH);
         getContentPane().add(gridPanel, BorderLayout.CENTER);
 
         printGrid(); // Display the grid
     }
 
+    private void restartGame() {
+        gameGrid = new GameGrid(gameGrid.getGrid().length, gameGrid.getGrid()[0].length); // Recreate the game grid
+        firstSelectedCell = null; // Reset the selected cell
+        printGrid(); // Refresh the grid
+        scoreLabel.setText("Score: 0"); // Reset the score label
+    }
+
     public void printGrid() {
         gridPanel.removeAll(); // Clear previous components
-        System.err.println();
         Cell[][] grid = gameGrid.getGrid();
         Font labelFont = new Font("Arial", Font.BOLD, 45);
 
@@ -63,7 +76,7 @@ public class GridGameGUI extends JFrame {
                     cellLabel.setOpaque(true);
                     cellLabel.setForeground(grid[i][j].getAwtColor());
                     cellLabel.setFont(labelFont); // Set the larger font
-                    cellLabel.setBackground(Color.GRAY); 
+                    cellLabel.setBackground(Color.GRAY);
                 } else {
                     cellLabel.setText(" "); // Empty cell
                 }
