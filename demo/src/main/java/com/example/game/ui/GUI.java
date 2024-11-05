@@ -65,7 +65,7 @@ public class GUI extends JFrame {
                     cellLabel.setFont(labelFont); // Set the larger font
                     cellLabel.setBackground(Color.GRAY); 
                 } else {
-                    cellLabel.setText("null"); // Empty cell
+                    cellLabel.setText(" "); // Empty cell
                 }
 
                 cellLabel.setBorder(BorderFactory.createLineBorder(java.awt.Color.BLACK));
