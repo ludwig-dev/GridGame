@@ -7,13 +7,13 @@ import java.awt.event.MouseEvent;
 import com.example.game.grid.GameGrid;
 import com.example.game.model.Cell;
 
-public class GUI extends JFrame {
+public class GridGameGUI extends JFrame {
     private GameGrid gameGrid;
     private JPanel gridPanel;
     private JLabel scoreLabel;
     private int[] firstSelectedCell = null;
 
-    public GUI(GameGrid gameGrid) {
+    public GridGameGUI(GameGrid gameGrid) {
         this.gameGrid = gameGrid;
         initializeUI();
     }
