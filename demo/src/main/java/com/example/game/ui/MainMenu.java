@@ -78,7 +78,7 @@ public class MainMenu extends JFrame {
             int cols = Integer.parseInt(colInput);
 
             GameGrid gridArr = new GameGrid(rows, cols);
-            GUI gui = new GUI(gridArr);
+            GridGameGUI gui = new GridGameGUI(gridArr);
             gui.launch();
             dispose(); // Close the main menu
         } catch (NumberFormatException ex) {
