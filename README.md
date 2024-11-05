@@ -1,6 +1,7 @@
 # GridGame
 
 GridGame is a simple Java-based game where players can merge cells on a grid. The game features a graphical user interface built with Swing.
+
 ![Grid Game Screenshot](https://github.com/3kguccisuit/GridGame/blob/main/GridGame.png)
 ## Features
 
