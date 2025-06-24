@@ -2,7 +2,7 @@
 
 GridGame is a simple Java-based game where players can merge cells on a grid. The game features a graphical user interface built with Swing.
 
-![Grid Game Screenshot](https://github.com/3kguccisuit/GridGame/blob/main/GridGame.png)
+![Grid Game Screenshot](https://github.com/ludwig-dev/GridGame/blob/main/GridGame.png)
 ## Features
 
 - Graphical User Interface using Swing
@@ -20,8 +20,8 @@ GridGame is a simple Java-based game where players can merge cells on a grid. Th
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/3kguccisuit/gridgame.git
-    cd gridgame
+    git clone https://github.com/ludwig-dev/gridgame.git
+    cd .\gridgame\demo\
     ```
 
 2. Build the project using Maven:
@@ -44,11 +44,5 @@ mvn exec:java
 4. The merged cell will increase its number by 1, and the score will be updated.
 5. When mering two cells with the number 5, new cells spawns at the top.
 6. The game continues until no more merges are possible
-
-## Future Plans
-- **Main Menu**: Add a main menu with options to start a new game, view high scores, and access settings.
-- **Save and Load Game**: Allow players to save their progress and resume games later.
-- **Leaderboard**: Implement a leaderboard to track high scores.
-- **Animations**: Enhance the user experience with sound effects and animations for merges and game events.
 
 
